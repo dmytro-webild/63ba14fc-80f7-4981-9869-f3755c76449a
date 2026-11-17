@@ -7,7 +7,7 @@ export default function Layout() {
     <div className="relative isolate min-h-svh flex flex-col bg-background text-foreground" data-button="solid" data-card="filled" data-pattern="hairlines">
       <header data-webild-section="Header">
         <NavbarSealCorner
-          brand="UMATI Property Developments"
+          brand=""
           logoSrc="https://storage.googleapis.com/webild/users/user_3MBZIQcCLFZBNSIE9QHse1vQg5O/uploaded-1794922770371-pmkhztm7.png"
           cta={{
             text: "Enquire",
