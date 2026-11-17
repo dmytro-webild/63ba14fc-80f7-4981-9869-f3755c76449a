@@ -8,6 +8,7 @@ export default function Layout() {
       <header data-webild-section="Header">
         <NavbarSealCorner
           brand="UMATI Property Developments"
+          logoSrc="https://storage.googleapis.com/webild/users/user_3MBZIQcCLFZBNSIE9QHse1vQg5O/uploaded-1794922770371-pmkhztm7.png"
           cta={{
             text: "Enquire",
             href: "#contact-plum-form"
