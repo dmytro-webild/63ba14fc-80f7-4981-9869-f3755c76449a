@@ -10,11 +10,11 @@
 
 /* webild:theme-ai */
 :root {
-  --primary-cta: #dc2626;
+  --primary-cta: #ea580c;
   --primary-cta-text: #f8f9fa;
   --secondary-cta: #e5e7eb;
   --secondary-cta-text: #111111;
-  --background-accent: #dc2626;
+  --background-accent: #ea580c;
 
   --background: #f8f9fa;
   --foreground: #111111;
@@ -30,7 +30,7 @@
   --muted-foreground: #3a3a3a;
   --accent: var(--background-accent);
   --accent-foreground: #fdfdfd;
-  --deep: #dc2626;
+  --deep: #ea580c;
   --deep-foreground: #ffffff;
   --destructive: #b3261e;
   --destructive-foreground: #ffffff;
