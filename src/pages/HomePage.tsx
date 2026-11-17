@@ -10,7 +10,7 @@ export default function HomePage() {
     <>
       <div id="hero" data-webild-section="HeroArchPoster" data-webild-section-id="HeroArchPoster-1" data-section="hero" className="contents" data-scene>
         <HeroArchPoster
-          title="UMATI Living"
+          title="UMATI property development "
           script="Harare"
           labelLeft="Luxury Estates"
           labelRight="Gated Haven"
