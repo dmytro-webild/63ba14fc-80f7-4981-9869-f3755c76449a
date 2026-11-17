@@ -41,20 +41,19 @@ const NavbarSealCorner = ({
         initial={reduce || !delay ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay }}
-        className="pointer-events-none fixed inset-0 z-50 text-white mix-blend-difference"
+        className="pointer-events-none fixed inset-0 z-50 text-foreground"
       >
-        <a href="#" aria-label={brand} className="pointer-events-auto absolute left-[var(--gutter)] top-[clamp(1rem,3vh,1.75rem)] flex h-[4.5rem] items-center">
-          {logoSrc ? (
+        <a href="#" aria-label={brand} className="pointer-events-auto absolute left-[var(--gutter)] top-[clamp(1rem,3vh,1.75rem)] flex h-[4.5rem] items-center gap-2.5 sm:gap-3">
+          {logoSrc && (
             <img
               src={logoSrc}
-              alt={brand}
-              className="h-[3.5rem] w-auto max-w-[14rem] object-contain"
+              alt=""
+              className="h-[2.5rem] sm:h-[2.75rem] w-auto max-w-[8rem] object-contain shrink-0"
             />
-          ) : (
-            <span className="font-[family-name:var(--font-heading)] text-lg font-bold uppercase tracking-wider text-current">
-              {brand}
-            </span>
           )}
+          <span className="font-[family-name:var(--font-body)] text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground">
+            {brand}
+          </span>
         </a>
 
         <div className="pointer-events-auto absolute right-[var(--gutter)] top-[clamp(1rem,3vh,1.75rem)] flex h-[4.5rem] items-center gap-[0.75rem]">
