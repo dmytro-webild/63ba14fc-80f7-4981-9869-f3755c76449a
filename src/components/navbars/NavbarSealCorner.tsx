@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import useMenuDialog from "@/components/kit/useMenuDialog";
 
@@ -8,6 +8,7 @@ type NavItem = { name: string; href: string };
 
 type NavbarSealCornerProps = {
   brand?: string;
+  logoSrc?: string;
   navItems?: NavItem[];
   cta?: { text: string; href: string };
   menuText?: string;
@@ -19,6 +20,7 @@ const EASE_OUT: [number, number, number, number] = [0.25, 1, 0.5, 1];
 
 const NavbarSealCorner = ({
   brand = "Villa Solenne",
+  logoSrc = "https://storage.googleapis.com/webild/users/user_3MBZIQcCLFZBNSIE9QHse1vQg5O/uploaded-1794922770371-pmkhztm7.png",
   navItems = [],
   cta = { text: "Book a stay", href: "#contact" },
   menuText = "Menu",
@@ -28,11 +30,9 @@ const NavbarSealCorner = ({
   const reduce = useReducedMotion();
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
-  const ringId = useId();
   const { scrollYProgress } = useScroll();
   const percent = useTransform(scrollYProgress, (v) => String(Math.round(v * 100)).padStart(2, "0"));
   useMenuDialog(open, panelRef, () => setOpen(false));
-  const ring = `${brand} · ${brand} · `;
 
   return (
     <>
@@ -43,23 +43,18 @@ const NavbarSealCorner = ({
         transition={{ duration: 0.8, delay }}
         className="pointer-events-none fixed inset-0 z-50 text-white mix-blend-difference"
       >
-        <a href="#" aria-label={brand} className="pointer-events-auto absolute left-[var(--gutter)] top-[clamp(1rem,3vh,1.75rem)] block size-[4.5rem]">
-          <svg viewBox="0 0 100 100" fill="none" className="absolute inset-0 size-full animate-[spin_30s_linear_infinite] motion-reduce:animate-none">
-            <defs>
-              <path id={ringId} d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0" />
-            </defs>
-            <text fill="currentColor" className="text-[length:var(--text-label)] uppercase tracking-[0.3em]">
-              <textPath href={`#${ringId}`} textLength="236">
-                {ring}
-              </textPath>
-            </text>
-          </svg>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="absolute left-1/2 top-1/2 size-[1.25rem] -translate-x-1/2 -translate-y-1/2">
-            {[0, 45, 90, 135].map((deg) => (
-              <path key={deg} d="M12 1 V23" transform={`rotate(${deg} 12 12)`} />
-            ))}
-            <circle cx="12" cy="12" r="3.2" />
-          </svg>
+        <a href="#" aria-label={brand} className="pointer-events-auto absolute left-[var(--gutter)] top-[clamp(1rem,3vh,1.75rem)] flex h-[4.5rem] items-center">
+          {logoSrc ? (
+            <img
+              src={logoSrc}
+              alt={brand}
+              className="h-[3.5rem] w-auto max-w-[14rem] object-contain"
+            />
+          ) : (
+            <span className="font-[family-name:var(--font-heading)] text-lg font-bold uppercase tracking-wider text-current">
+              {brand}
+            </span>
+          )}
         </a>
 
         <div className="pointer-events-auto absolute right-[var(--gutter)] top-[clamp(1rem,3vh,1.75rem)] flex h-[4.5rem] items-center gap-[0.75rem]">
